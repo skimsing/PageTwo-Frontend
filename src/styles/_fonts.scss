@@ -1,0 +1,37 @@
+@use'./mixins' as *;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;1,400&family=Open+Sans:wght@400;700&family=PT+Sans:wght@400;700&display=swap');
+
+body{
+    font-family: 'Nunito','PT Sans', 'Open Sans', sans-serif;
+}
+h1{
+    font-size: 2rem;
+    @include tablet{
+        font-size: 3.75rem;
+    }
+}
+h2{
+    font-size: 2rem;
+    @include desktop{
+        font-size: 3rem;
+    }
+
+}
+h3{
+    font-size: 1rem;
+    @include tablet{
+        font-size: 1.5rem;
+    }
+    @include desktop{
+        font-size: 2rem;
+    }
+}
+p{
+    font-size: 0.8rem;
+    @include tablet{
+        font-size: 1rem;
+    }
+    @include desktop{
+        font-size: 1.2rem;
+    }
+}

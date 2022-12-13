@@ -1,0 +1,18 @@
+@use '../../styles/global' as *;
+@use '../../styles/mixins' as *;
+
+.footerNav{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    &__listItems{
+        //@include desktop{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            list-style: none;
+        //}
+    }
+}

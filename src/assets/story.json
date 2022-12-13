@@ -1,0 +1,119 @@
+[
+    {
+        "sceneNum": 1,
+        "type": "STORY",
+        "dialog":"You reaches fork in the road. Which path will you take?",
+        "image": "background1.png",
+        "choices": [
+            {
+                "id": "1A",
+                "points": 0,
+                "option": "Backtrack, you remember there are some berries along the way you came. They should be enough."
+            },
+            { 
+                "id":"1B",
+                "points": 1,
+                "option": "Bushes, you could spend hours here collecting berries."
+            },
+            {
+                "id":"1C",
+                "points": 2,
+                "option": "A path lined with trees, maybe there will be better berries deeper in the forest."
+            }
+        ]
+    },
+    {
+        "sceneNum": 2,
+        "type": "STORY",
+        "dialog":"You soon get tired of searching for berries and realize you're a little bit peckish. What will you do?",
+        "image": "background2.png",
+        "choices": [
+            {
+                "id": "2A",
+                "points": 0,
+                "option": "There's a small stream up ahead, maybe you can catch a fish! Grandma will be so happy!"
+            },
+            { 
+                "id":"2B",
+                "points": 1,
+                "option": "Eat some of the berries you already collected, no one will know the difference."
+            },
+            {
+                "id":"2C",
+                "points": 2,
+                "option": "Keep walking into the forest, you have bad eyesight but you think there's something shiny up ahead."
+            }
+        ]
+    },
+    {
+        "sceneNum": 3,
+        "type": "STORY",
+        "dialog":"After a quick break, you resume your journey but realize it is getting dark and the trees are starting to look scary. What will you do?",
+        "image": "background3.png",
+        "choices": [
+            {
+                "id": "3A",
+                "points": 0,
+                "option": "You know you're lost so the best thing to do is stay put until tomorrow. Time to climb a  tree and put up a tent."
+            },
+            { 
+                "id":"3B",
+                "points": 1,
+                "option": "Backtrack the way you came."
+            },
+            {
+                "id":"3C",
+                "points": 2,
+                "option": "Look at the stars and trust your rusty navigation skills."
+            }
+        ]
+    },
+    {
+        "sceneNum": 4,
+        "type": "STORY",
+        "dialog":"You come to your senses and think you will be able to more or less find your way back. What will you do?",
+        "image": "background4.png",
+        "choices": [
+            {
+                "id": "4A",
+                "points": 0,
+                "option": "Time to go home, you have enough berries and you've had enough of berry picking"
+            },
+            { 
+                "id":"4B",
+                "points": 1,
+                "option": "Just a few more berries and then you promise yourself you'll go home."
+            },
+            {
+                "id":"4C",
+                "points": 2,
+                "option": "Keep walking, you have yet to accomplish your mission. Think about how disappointed Grandma will be!"
+            }
+        ]
+    },
+    {
+        "sceneNum": 5,
+        "type": "GOOD",
+        "dialog":"As you keep walking deeper and deeper into the forest, you realize you've become hopelessly lost. Just as you are about to give up on all hope, you notice there's a faint glow up ahead. Moonlight filters through the trees and it's just enough to make out a path towards the faint light. Soon, you reach a small clearing. You see a small stream so you to wash your face and freshen up a little. As you look up you see a house made of cookies and sweets, surrounded by the largest, juiciest berries you've ever seen. You grab one and bite into it. It is the most delicious thing you have ever eaten. Tomorrow, you will bring grandma here and live here forever.",
+        "image":"background5.png"
+    },
+    {
+        "sceneNum":6,
+        "type": "NORMAL",
+        "dialog":"The trees seem endless, but you trust your instincts. You've been here hundreds of times, surely this time will be no different. Eventually the trees seem to thin and finally, you see a familiar path back to the village. Making your way back to grandma's house with your basket of berries in hand, you smell something so delicious you begin to salivate. Following the smell, you realize Grandma has been waiting for you to return and has made you a nice hot dinner. You've had a long day, but now you're home safe, you've earned some time to relax.",
+        "image":"background6.png"
+    },
+    {
+        "sceneNum": 7,
+        "type":"BAD",
+        "dialog":"It's been a long day, and you walk home. A right turn here, a left turn there, and you should be home... and yet, somehow, it feels like the line of trees seem endless. It's the dead of the night and you're tired, so you think it's wise to take a break now... You find a nice tree trunk to rest on, and cover yourself with some leaves. Hopefully the wolves don't find you.... Tomorrow will be better...",
+        "image":"background4.png"
+    },
+    {
+        "sceneNum": 8,
+        "type": "MAIN",
+        "dialog":"You are a little village girl named Momo. Your sickly grandma has tasked you with finding the most juicy and delicious berries. You will have to go into the forest to complete your mission, but beware! Every choice could be a matter of life or death!",
+        "image":"backgroundMain.png"
+    }
+
+]
