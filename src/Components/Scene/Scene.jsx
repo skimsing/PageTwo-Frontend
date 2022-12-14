@@ -1,11 +1,9 @@
 import './Scene.scss';
+import { Card, Button } from 'react-bootstrap';
 
 //story
 import story from '../../assets/story.json';
-
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-
 
 export default function Scene(){
     const [scene, setScene] = useState(story[7]);
@@ -17,27 +15,30 @@ export default function Scene(){
     //    };
 
    function keepScore(points){
-   
       let currentScore = score + points;
       setScore(currentScore);
-      console.log(`current score is: ${currentScore}`);
+    //   console.log(`current score is: ${currentScore}`);
    } 
 
+//    useEffect(() => {
+//     console.log(score, scene);
+//    }, [score]);
+   
    function goToNextScene(choicePts){
         console.log(`choice points`, choicePts)
         const nextSceneNum = scene.sceneNum + 1;
         const nextScene =  story.find((next)=>{return next.sceneNum === nextSceneNum});
         // console.log(nextScene)
         
-        keepScore(choicePts);
         // check if story is "over"
         if (nextScene.type !== "STORY") {
-            getEndings(score);
+            getEndings(score + choicePts);
         } 
         // if not go to next scene
         else {
             setScene(nextScene)
         }
+        keepScore(choicePts);
    }
     //on click
     //go to next scene
@@ -52,7 +53,7 @@ export default function Scene(){
     function startGame(){
         //start timer
         //play start animation
-        //set scenes
+        //set scenes and reset score
         setScene(story[0]);
         setScore(0);
     }
@@ -82,33 +83,24 @@ export default function Scene(){
    }
 
    function getEndings(score){
+        console.log(score)
         if(score <= 2){
             const ending = story.find((scene) => scene.type === "BAD");
+            console.log(ending);
             setScene(ending);
         }
         else if(score >= 3 && score <= 6){
             const ending = story.find((scene) => scene.type === "NORMAL");
+            console.log(ending);
+
             setScene(ending);
         }
-        else if(score >= 7){
+        else{
             const ending = story.find((scene) => scene.type === "GOOD");
             setScene(ending);
         }
    }
 
-  const updateDbScores = async() => {
-    try {
-        let userScores = {
-            "playId": "",
-            "name": "",
-            "score": "",
-            "time": ""
-        }
-        axios.post()
-    } catch (error) {
-        console.error("post scores error", error);
-    } 
-  }
     
     return(
         <div>
