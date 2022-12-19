@@ -4,13 +4,16 @@
 .footerNav{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 1rem;
+
     &__listItems{
         //@include desktop{
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            gap: 1rem;
+            // gap: 1rem;
             text-decoration: none;
             list-style: none;
         //}

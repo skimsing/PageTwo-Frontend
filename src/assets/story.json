@@ -2,7 +2,7 @@
     {
         "sceneNum": 1,
         "type": "STORY",
-        "dialog":"You reaches fork in the road. Which path will you take?",
+        "dialog":"It's bright and early in the morning as you start your journey, slowly meadering though the woods and gathering only the juiciest berries you find. You reach a fork in the road. Which path will you take?",
         "image": "background1.png",
         "choices": [
             {
@@ -54,7 +54,7 @@
             {
                 "id": "3A",
                 "points": 0,
-                "option": "You know you're lost so the best thing to do is stay put until tomorrow. Time to climb a  tree and put up a tent."
+                "option": "You know you're lost so the best thing to do is stay put until tomorrow. Time to climb a tree and put up a tent."
             },
             { 
                 "id":"3B",
@@ -112,7 +112,7 @@
     {
         "sceneNum": 8,
         "type": "MAIN",
-        "dialog":"You are a little alien named Momo. Your sickly grandma has tasked you with finding the most juicy and delicious berries. You will have to go into the forest to complete your mission, but beware! Every choice could be a matter of life or death!",
+        "dialog":"You are a little village girl named Momo. Your sickly grandma has tasked you with finding the most juicy and delicious berries. You will have to go into the forest to complete your mission, but beware! Every choice could be a matter of life or death!",
         "image":"backgroundMain.png"
     }
 

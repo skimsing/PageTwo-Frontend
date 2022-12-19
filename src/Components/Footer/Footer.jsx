@@ -6,21 +6,18 @@ export default function Footer (){
         <div>
             <nav className='footerNav'>
                 <div className="footerNav__logo">
-                    LOGO
+                    PageTwo
                 </div>
-                <ul className='footerNav__listItems'>
-                    <li className='footerNav__item'>
-                        Home
-                    </li>
-                    <li className='footerNav__item'>
-                        Game
-                    </li>
-                    <li className='footerNav__item'>
-                        About
-                    </li>
-                </ul>
+                <div className='footerNav__listItems'>
+                    <p className='footerNav__item'> Contact </p>
+                    <a  href='mailto:skimsing@gmail.com'
+                        className='footerNav__item'
+                    >
+                        skimsing@gmail.com
+                    </a>
+                </div>
             </nav>
-
+            <div className='footerCopyright'>© Copyright Sophia Kim Sing 2022</div>
         </div>
     );
 }

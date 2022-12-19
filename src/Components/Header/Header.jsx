@@ -1,4 +1,5 @@
 import './Header.scss';
+import { Link } from 'react-router-dom';
 
 
 export default function Header(){
@@ -7,20 +8,23 @@ export default function Header(){
         <div>
             <nav className='headerNav'>
                 <div className="headerNav__logo">
-                    LOGO
+                    PageTwo
                 </div>
                 <ul className='headerNav__listItems'>
                     <li className='headerNav__item'>
-                        Home
+                        <Link to={"/"}>
+                            Home
+                        </Link>
                     </li>
                     <li className='headerNav__item'>
-                        Game
+                        <Link to={"/Game"}>
+                            Game
+                        </Link>
                     </li>
                     <li className='headerNav__item'>
-                        About
-                    </li>
-                    <li className='headerNav__item'>
-                        Log In
+                        <Link to={'/About'}>
+                            About
+                        </Link>
                     </li>
                 </ul>
             </nav>
