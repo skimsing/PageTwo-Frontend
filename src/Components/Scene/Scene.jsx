@@ -56,15 +56,15 @@ export default function Scene(){
         if (sceneObj.choices) {
             return sceneObj.choices.map(element => {
                 return (
-                    <div className="storyOptions_option"
-                    key={element.id}>
-                        <button className='storyOptions_text'
+                    <button className='storyOptions_text'
                         type='text'
+                        key={element.id}
                         onClick={() => goToNextScene(element.points)}
                         >
-                            {element.option}
-                        </button>
-                    </div>
+                        {/* <div className="storyOptions_option"> */}
+                                {element.option}
+                        {/* </div> */}
+                    </button>
                 );
             });
             

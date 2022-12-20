@@ -16,6 +16,7 @@ export default function Home(){
             <div className="aboutGame">
                 <h3>Your Adventure Awaits...</h3>
                 <p>Proin consectetur, neque venenatis commodo sagittis, diam justo tincidunt urna, sit amet tincidunt metus justo sed sem. Cras ut dolor urna. Cras ac nunc sit amet mauris feugiat luctus a eget nisl. Sed rhoncus blandit justo vitae fringilla. Sed dapibus arcu sit amet urna malesuada, quis ullamcorper sem tristique. Praesent vel metus enim. Nunc vel lorem est.</p>
+            </div>
             <Link to={"/Game"}>
                 <button className='playGameBtn'
                     type='button'
@@ -23,7 +24,6 @@ export default function Home(){
                     Go to game
                 </button>
             </Link>
-            </div>
             <div className="commentSection">
               <Comments />
             </div>

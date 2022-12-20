@@ -2,19 +2,26 @@
 @use '../../styles/mixins' as *;
 
 .leaderboard{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 90%;
+    margin: auto;
     &__table{
-        width: 100%;
+        margin: 1rem auto;
+        width: 70%;
+        @include tablet{
+            width: 40%;
+        }
     }
     &__position{
         font-weight: 700;
     }
     &__name{
-        width: 70%;
+        max-width: 70%;
+        min-width: 40%;
     }
     // &__score{
-
-    // }
+        
+        // }
+    }
+tr:nth-child(even){
+    background-color: #f0f2f0;
 }

@@ -1,3 +1,5 @@
+import './About.scss';
+
 export default function About(){
 
     function submitHandler(){
@@ -7,25 +9,31 @@ export default function About(){
     return(
         <div>
             <div className="aboutMe">
-                {/* profile pic */}
-                {/* about me, and why i chose CYOA */}
-                <p>Maybe this p tag will suddenly become an img tag</p>
+                <h2>About PageTwo</h2>
                 <p>Proin consectetur, neque venenatis commodo sagittis, diam justo tincidunt urna, sit amet tincidunt metus justo sed sem. Cras ut dolor urna. Cras ac nunc sit amet mauris feugiat luctus a eget nisl. Sed rhoncus blandit justo vitae fringilla. Sed dapibus arcu sit amet urna malesuada, quis ullamcorper sem tristique. Praesent vel metus enim. Nunc vel lorem est.</p>
-
             </div>
-            <div className="contactMe">
-                <p>Please contact me, preferrably bringing cookies</p>
-                <form onSubmit={() => submitHandler}>
-                    <label>Name</label>
-                    <input 
+            <div className="addComment__FormLabel">
+                <h3>Please contact me, preferrably bringing cookies</h3>
+                <form className="addComment__form"
+                    onSubmit={() => submitHandler}
+                    >
+                    <label className="addComment__nameLabel">
+                        Name
+                        </label>
+                    <input className="addComment__commentName"
                         type="text"
                         placeholder = "Enter your name"
                         required
                     ></input>
-                    <textarea
+                    <label className="addComment__boxLabel"
+                    >
+                        Leave a message:
+                    </label>
+                    <textarea className="addComment__commentBox"
                         placeholder="leave your message"
+                        required
                     ></textarea>
-                    <button
+                    <button className="addComment__btn"
                         type="Submit"
                     >
                         Submit message

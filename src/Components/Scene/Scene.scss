@@ -34,9 +34,39 @@
 }
 
 .storyOptions{
-    &__option{
-        padding: 1rem;
+    margin: 1rem auto;
+    width: 90%;
+    @include tablet{
+        width: 80%;
     }
+    @include desktop{
+        width: 60%;
+    }
+    &__option{
+        width: 100%;
+        background-color: #fff;
+        border-radius: 5px;
+        border: 1px solid #36454f;
+        padding: 1rem;
+        margin: 1rem 0;
+        &:hover{
+            background-color: #6e7f80;
+            color: #f0f2f2;
+        }
+    }
+}
+.storyOptions__text{
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #36454f;
+    padding: 1rem;
+    margin: 1rem 0;
+    &:hover{
+        background-color: #6e7f80;
+        color: #f0f2f2;
+    }
+
 }
 .storyStartBtn{
     border:2px solid #36454f;

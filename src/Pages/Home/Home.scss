@@ -18,6 +18,9 @@
     color: #36454f;
     font-weight: 700;
     font-size: 1rem;
+    @include tablet{
+        margin: 1rem 0;
+    }
     &:hover{
         background-color: #6e7f80;
         color: #f0f2f2;
@@ -27,6 +30,14 @@
 }
 .aboutGame{
     margin: 1rem;
-
+    @include tablet{
+        width: 70%;
+        margin: auto;
+        padding: 1rem 0;
+    }
+    @include desktop{
+        width: 60%;
+        padding: 2rem 0;
+    }
 
 }

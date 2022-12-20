@@ -1,3 +1,57 @@
 @use '../../styles/global.scss' as*;
 @use '../../styles/mixins.scss' as*;
 @use '../../styles/fonts' as*;
+
+.aboutMe{
+    margin: 2rem;
+    @include tablet{
+        width: 70%;
+        margin: 2rem auto;
+    }
+}
+
+.addComment{
+    &__form{
+        margin: 2rem 1rem;
+        @include tablet{
+            width: 60%;
+            margin: 2rem auto;
+        }
+    }
+    &__formWrapper{
+        display: flex;
+        flex-direction: column;
+        align-items:flex-start;
+
+    }
+    &__formLabel{
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    &__boxLabel, &__nameLabel{
+        font-weight: 700;
+    }
+    &__commentName{
+        width: 100%;
+        padding: 0.6rem;
+    }
+    &__commentBox{
+        font-family: inherit;
+        width: 100%;
+        padding: 0.6rem;
+        line-height: 3rem;
+    }
+    &__btn{
+        border: 2px solid;
+        border-radius: 5px;
+        margin: 0.5rem 0;
+        padding: 0.7rem 1.5rem;
+        font-weight: 700;
+        background-color: #fff;
+        &:hover{
+            background-color: #6e7f80;
+            color: #f0f2f2;
+            border: 2px solid #f0f2f2;
+        }
+    }
+}
