@@ -25,9 +25,15 @@ export default function Leaderboard(){
                 pos++
                 return(
                     <tr key={element.id}>
-                        <td>{i + 1}</td>
-                        <td>{element.name}</td>
-                        <td>{element.score}</td>
+                        <td className='leaderboard__playerPosition'>
+                            {i + 1}
+                            </td>
+                        <td className='leaderboard__playerName'>
+                            {element.name}
+                            </td>
+                        <td className='leaderboard__playerScore'>
+                            {element.score}
+                            </td>
                     </tr>
                 )
             }
@@ -35,13 +41,19 @@ export default function Leaderboard(){
     }
 
     return(
-        <div>
-            <table className='leaderboard'>
-                <thead className='leaderboard__tableHeading'>
-                    <tr className='leaderboard__tableSubheading'>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Score</th>
+        <div className='leaderboard'>
+            <table className='leaderboard__table'>
+                <thead className='leaderboard__tableHead'>
+                    <tr className='leaderboard__tableColumnTitle'>
+                        <th className='leaderboard__position'>
+                            #
+                            </th>
+                        <th className='leaderboard__name'>
+                            Name
+                            </th>
+                        <th className='leaderboard__score'>
+                            Score
+                            </th>
                     </tr>
                 </thead>
                 <tbody>

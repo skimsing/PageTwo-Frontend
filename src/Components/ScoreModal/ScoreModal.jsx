@@ -16,7 +16,7 @@ export default function ScoreModal({score, showModal}){
                 score: score
             }
             await axios.post('http://localhost:8080/game', userScores);
-            //auto close modal after input
+            //close modal after posting scores
             showModal(false)
 
         } catch (error) {
@@ -25,12 +25,17 @@ export default function ScoreModal({score, showModal}){
       }
 
     return(
+        //close modal if clicked anywhere outside it
         <div className='overlay' onClick={()=> {showModal(false)}}>
             <div className="formCard">
                 <h3>Submit your Score?</h3>
-                <form onSubmit={e => updateDbScores(e)}>
+                <form 
+                    onSubmit={e => updateDbScores(e)}
+                    className='formCard__form'
+                >
                     <p>Your Score: {score}</p>
                     <input 
+                        className='formCard__input'
                         type="text" 
                         placeholder='Enter your name...'
                         name="playerName"
@@ -38,7 +43,6 @@ export default function ScoreModal({score, showModal}){
                         onChange={e => setPlayerName(e.target.value)}
                         required
                     />
-                    {/* </input> */}
                     <Button 
                         type='submit'
                     >
@@ -46,12 +50,14 @@ export default function ScoreModal({score, showModal}){
                     </Button>
                 </form>
                 <Button 
+                    className='formCard__closeBtn'
                     type ='button'
                     onClick={ () => {showModal(false)}}
                 >
                     Close
                 </Button>
                 <Button
+                    className='formCard__homeBtn'
                     type ='button'
                     onClick={() => {navigate('/')}}
                 >

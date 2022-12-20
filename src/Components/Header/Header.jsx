@@ -5,24 +5,27 @@ import { Link } from 'react-router-dom';
 export default function Header(){
 
     return(
-        <div>
-            <nav className='headerNav'>
+        <div className='headerNav'>
+            <nav className='headerNav__nav'>
                 <div className="headerNav__logo">
                     PageTwo
                 </div>
                 <ul className='headerNav__listItems'>
                     <li className='headerNav__item'>
-                        <Link to={"/"}>
+                        <Link className="headerNav__itemLink"
+                            to={"/"}>
                             Home
                         </Link>
                     </li>
                     <li className='headerNav__item'>
-                        <Link to={"/Game"}>
+                        <Link className="headerNav__itemLink"
+                            to={"/Game"}>
                             Game
                         </Link>
                     </li>
                     <li className='headerNav__item'>
-                        <Link to={'/About'}>
+                        <Link className="headerNav__itemLink"
+                            to={'/About'}>
                             About
                         </Link>
                     </li>

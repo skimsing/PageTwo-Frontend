@@ -1,5 +1,6 @@
 import './Scene.scss';
-import { Card, Button } from 'react-bootstrap';
+import Character from '../Character/Character';
+import { Button } from 'react-bootstrap';
 import ScoreModal from '../ScoreModal/ScoreModal';
 import { useState, useEffect, useRef } from 'react';
 
@@ -7,20 +8,21 @@ import { useState, useEffect, useRef } from 'react';
 import story from '../../assets/story.json';
 
 export default function Scene(){
+    //story states
     const [scene, setScene] = useState(story[7]);
     const [score, setScore] = useState(0);
-    const [background, setBackground] = useState(`/images/${scene.image}`)
     const [showStartBtn, setShowStartBtn] = useState(true);
     const [isModalShowing,  setIsModalShowing] = useState(false);
 
+    //animation states
 
+    // keep track of player's score
    function keepScore(points){
       let currentScore = score + points;
       setScore(currentScore);
    } 
 
-//display score modal
-
+    //display score modal
    function goToNextScene(choicePts){
         console.log(`choice points`, choicePts)
         const nextSceneNum = scene.sceneNum + 1;
@@ -31,25 +33,21 @@ export default function Scene(){
             const playScore = score + choicePts;
             getEndings(playScore);
 
-            // showPopup();
             setTimeout(() => {
                 setIsModalShowing(true);
                 setShowStartBtn(true);
             }, 3000);
         } 
-        // if not go to next scene
         else {
+            // if not go to next scene
             setScene(nextScene)
         }
         //update score
         keepScore(choicePts);
    }
 
-        //after input scores, reset animation sequence
-   
     function startGame(){
         //play start animation
-        //set scenes and reset score
         setScene(story[0]);
         setScore(0);
         setShowStartBtn(false)
@@ -59,11 +57,9 @@ export default function Scene(){
         if (sceneObj.choices) {
             return sceneObj.choices.map(element => {
                 return (
-                    <div 
-                    className="storyOptions_option"
+                    <div className="storyOptions_option"
                     key={element.id}>
-                        <Button 
-                        className='storyOptions_text'
+                        <Button className='storyOptions_text'
                         type='text'
                         onClick={() => goToNextScene(element.points)}
                         >
@@ -82,12 +78,12 @@ export default function Scene(){
 
    function getEndings(score){
         console.log(score)
-        if(score <= 3){
+        if(score <= 4){
             const ending = story.find((scene) => scene.type === "BAD");
             console.log(ending);
             setScene(ending);
         }
-        else if(score >= 4 && score <= 6){
+        else if(score >= 5 && score <= 6){
             const ending = story.find((scene) => scene.type === "NORMAL");
             console.log(ending);
 
@@ -103,8 +99,9 @@ export default function Scene(){
     return(
         <div>
             <div className="scene">
-                <img src={`/images/${scene.image}`}
-                ></img>    
+                <img className='scene__background' 
+                    src={`/images/${scene.image}`}/>
+                {/* <Character />     */}
             </div>            
             <div className="sceneText">
                 {scene.dialog}
@@ -122,7 +119,6 @@ export default function Scene(){
                 </Button>
                 }
             </div>
-            {/* {isModalShowing && <div className='modal'>Some modal message</div> } */}
             {isModalShowing && <ScoreModal score={score} showModal={setIsModalShowing}/> }
         </div>
     );

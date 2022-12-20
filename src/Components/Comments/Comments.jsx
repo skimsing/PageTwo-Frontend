@@ -1,11 +1,13 @@
 import './Comments.scss';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Comments(){
  const [name, setName] = useState("");
  const [comment, setComment] = useState("");
  const [allComments, setAllComments] = useState([]);
+ const params = useParams();
 
     // load comments from server
     useEffect(()=>{
@@ -16,15 +18,22 @@ export default function Comments(){
         })
     },[]);
 
+    const getAllComments = async() => {
+        //update comments with updated data
+        const res = await axios.get('http://localhost:8080/comment');
+        setAllComments(res.data);
+        
+    }
     //post comments to server
     const postNewComment = async(newComment) => {
         try {
             newComment.preventDefault();
             let userComment = {
-                "name": name,
-                "comment": comment,
+                name: name,
+                comment: comment,
             }
-            const res = await axios.put('http://localhost:8080/comments')
+            await axios.post('http://localhost:8080/comment', userComment);
+            getAllComments();
         } catch (error) {
             console.log("couldn't post comment error", error);
         }
@@ -32,9 +41,14 @@ export default function Comments(){
 
     // delete handler
     const deleteComment = async(comment) => {
-        console.log(`http://localhost:8080/comments/${comment.target.value}`)
+        // console.log("comment is here", comment)
+        try {
+            const res = await axios.delete(`http://localhost:8080/comment/${comment}`);
+            getAllComments();
+        } catch (error) {
+            console.log("couldn't delete comment", error);
+        }
     }
-
 
     //create each comment
     function addNewComment(name, date, comment, id){
@@ -43,7 +57,7 @@ export default function Comments(){
                 <div className="comment__icon">
                     <button 
                         className='comment__delete'
-                        onClick={deleteComment}
+                        onClick={() => deleteComment(id)}
                     >
                         ❌
                     </button>
@@ -69,7 +83,7 @@ export default function Comments(){
         <div>
             <form 
                 className="addComment__form"
-                onSubmit={e => e.preventDefault()} 
+                onSubmit={e => postNewComment(e)} 
             >  
                 <label 
                     className="addComment__commentLabel" 
@@ -82,6 +96,7 @@ export default function Comments(){
                         className="addComment__commentName" 
                         name="commentName" 
                         id="commentName" 
+                        value={name}
                         placeholder="Enter your name"
                         required
                         onChange={ e => setName(e.target.value)}
@@ -90,6 +105,7 @@ export default function Comments(){
                         className="addComment__commentBox" 
                         name="commentText" 
                         id="commentText" 
+                        value={comment}
                         placeholder="Add a new comment"
                         required
                         onChange={ e => setComment(e.target.value)}

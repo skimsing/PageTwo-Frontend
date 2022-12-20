@@ -1,9 +1,15 @@
 @use '../../styles/global' as *;
 @use '../../styles/mixins' as *;
 
-img{
-    height: 600px;
-    width: auto;
+.scene{
+    overflow: hidden;
+    &__background{
+        height: 50%;
+        max-width: 100%;
+        @include tablet{
+            height: 30%;
+        }
+    }
 }
 
 .storyOptions{

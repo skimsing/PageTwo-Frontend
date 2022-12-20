@@ -1,3 +1,20 @@
 @use '../../styles/global' as *;
 @use '../../styles/mixins' as *;
 
+.leaderboard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__table{
+        width: 100%;
+    }
+    &__position{
+        font-weight: 700;
+    }
+    &__name{
+        width: 70%;
+    }
+    // &__score{
+
+    // }
+}
