@@ -3,9 +3,30 @@
 @use '../../styles/fonts' as*;
 
 .hero{
+    overflow: hidden;
     &__carouselImg{
-        height: 600px;
+        max-height: 60vh;
         width: auto;
     }
+
+}
+.playGameBtn{
+    border:2px solid #36454f;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    color: #36454f;
+    font-weight: 700;
+    font-size: 1rem;
+    &:hover{
+        background-color: #6e7f80;
+        color: #f0f2f2;
+        border: 2px solid #f0f2f2;
+
+    }
+}
+.aboutGame{
+    margin: 1rem;
+
 
 }

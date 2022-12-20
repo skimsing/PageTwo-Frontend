@@ -1,9 +1,60 @@
 @use '../../styles/global' as *;
 @use '../../styles/mixins' as *;
 
-.displayComment{
+.addComment{
+    &__form{
+        margin: 2rem 1rem;
+        @include tablet{
+            width: 60%;
+            margin: auto;
+        }
+    }
+    &__formWrapper{
+        display: flex;
+        flex-direction: column;
+        align-items:flex-start;
+
+    }
+    &__formLabel{
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    &__boxLabel, &__nameLabel{
+        font-weight: 700;
+    }
+    &__commentName{
+        width: 100%;
+        padding: 0.6rem;
+    }
+    &__commentBox{
+        font-family: inherit;
+        width: 100%;
+        padding: 0.6rem;
+        line-height: 3rem;
+    }
+    &__btn{
+        border: 2px solid;
+        border-radius: 5px;
+        margin: 0.5rem 0;
+        padding: 0.7rem 1.5rem;
+        font-weight: 700;
+        &:hover{
+            background-color: #6e7f80;
+            color: #f0f2f2;
+            border: 2px solid #f0f2f2;
+        }
+    }
+}
+.displayComments{
     padding: 2rem 0;
-    background-color: #ffffff;
+    margin: 0 1rem;
+        @include tablet{
+            width: 70%;
+            margin: auto;
+        }
+    &__sectionHeading{
+        text-transform: uppercase;
+    }
 
     &__container{
         margin: 1rem auto;
@@ -27,60 +78,27 @@
             
         }
     }
-    &__icon{
-        height: 2.15rem;
-        width: 2.15rem;
-        max-height: 10%;
-        border-radius: 50%;
-        @include tablet{
-            height: 3rem;
-            width: 3rem;
-        }
+}
+.comment{
+    &__displayed{
+        padding: 1rem;
     }
-    &__heading{
-        width: 80%;
-        margin: auto;
-        font-weight: 600;
+    &__details{
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5rem 0;
     }
-    &__form{
-        width: 80%;
+    &__name{
+        font-weight: 700;
+        font-size: 1rem;
     }
-    &__commentWrapper{
-        display:flex;
-        flex-direction: column;
-    }
-    &__commentLabel{
-        text-transform: uppercase;
-        color: #afafaf;
-        font-weight: 600;
-    }
-    &__commentBox{
-        background-color: #fafafa;
-        color: #000;
-        border: 1px solid #afafaf;
+    &__deleteBtn{
+        padding: 0.7rem;
+        background-color: #fff;
         border-radius: 5px;
-        min-height: 2rem;
-        padding: 5px;
-        margin: 0.5rem 0 1.5rem;
-        font-family: inherit;
-    }
-    &__btn{
-        height: 3.5rem;
-        text-transform: uppercase;
-        background-color: #0095ff;
-        border-style: none;
-        color: #fff;
-        border-radius: 5px;
-        padding: 1rem 3rem;
-        position: relative;
-        gap: 50px;
-        &:hover{
-            background-color: #0065ad;
-        }
-    }
-    &__btnIcon{
-        position: absolute;
-        left: 0.5rem;
-        height: 1.27rem;
+        border: none;
+         &:hover{
+            border: 2px solid red;
+         }
     }
 }

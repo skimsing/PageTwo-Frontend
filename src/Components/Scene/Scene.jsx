@@ -1,6 +1,5 @@
 import './Scene.scss';
 import Character from '../Character/Character';
-import { Button } from 'react-bootstrap';
 import ScoreModal from '../ScoreModal/ScoreModal';
 import { useState, useEffect, useRef } from 'react';
 
@@ -59,12 +58,12 @@ export default function Scene(){
                 return (
                     <div className="storyOptions_option"
                     key={element.id}>
-                        <Button className='storyOptions_text'
+                        <button className='storyOptions_text'
                         type='text'
                         onClick={() => goToNextScene(element.points)}
                         >
                             {element.option}
-                        </Button>
+                        </button>
                     </div>
                 );
             });
@@ -103,7 +102,7 @@ export default function Scene(){
                     src={`/images/${scene.image}`}/>
                 {/* <Character />     */}
             </div>            
-            <div className="sceneText">
+            <div className="scene__text">
                 {scene.dialog}
             </div>
             <div className='storyOptions'>
@@ -111,12 +110,11 @@ export default function Scene(){
             </div>
             <div className="storyControls">
                {showStartBtn && 
-               <Button
-                className='storyStartBtn'
+               <button className='storyStartBtn'
                 onClick={startGame}
                 >
                     Start Game!
-                </Button>
+                </button>
                 }
             </div>
             {isModalShowing && <ScoreModal score={score} showModal={setIsModalShowing}/> }

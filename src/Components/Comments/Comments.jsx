@@ -54,14 +54,6 @@ export default function Comments(){
     function addNewComment(name, date, comment, id){
         return(
             <div className="comment__displayed" key={id}>
-                <div className="comment__icon">
-                    <button 
-                        className='comment__delete'
-                        onClick={() => deleteComment(id)}
-                    >
-                        ❌
-                    </button>
-                </div>
                 <div className="comment__details">
                     <div className="comment__label">
                         <div className="comment__name">
@@ -71,10 +63,18 @@ export default function Comments(){
                             {date}
                         </div>
                     </div>
+                    <button 
+                        className='comment__deleteBtn'
+                        onClick={() => deleteComment(id)}
+                        >
+                        ❌
+                    </button>
+                </div>
+                {/* <div className="comment__details"> */}
                     <div className="comment__text">
                         {comment}
                     </div>
-                </div>
+                {/* </div> */}
             </div>
         );
     }
@@ -85,13 +85,15 @@ export default function Comments(){
                 className="addComment__form"
                 onSubmit={e => postNewComment(e)} 
             >  
-                <label 
-                    className="addComment__commentLabel" 
-                    htmlFor="commentText"
-                >
+                <h3 className="addComment__formLabel" >
                     Leave a comment:
-                </label>
-                <div className='addComment__commentWrapper'>
+                </h3>
+                <div className='addComment__formWrapper'>
+                    <label className='addComment__nameLabel'
+                        htmlFor='commentName'
+                        >
+                        Your Name:
+                    </label>
                     <input
                         className="addComment__commentName" 
                         name="commentName" 
@@ -100,7 +102,13 @@ export default function Comments(){
                         placeholder="Enter your name"
                         required
                         onChange={ e => setName(e.target.value)}
-                    ></input>
+                        >
+                    </input>
+                    <label className='addComment__boxLabel'
+                        htmlFor='commentText'
+                        >
+                        Comment:
+                    </label>
                     <textarea 
                         className="addComment__commentBox" 
                         name="commentText" 
@@ -114,13 +122,16 @@ export default function Comments(){
                         className="addComment__btn" 
                         type="submit" 
                         name="btn"
-                    >
-                        Comment
+                        >
+                       Submit
                     </button>
                 </div>
             </form>
 
             <div className="displayComments">
+                <h3 className='displayComments__sectionHeading'>
+                    What Others Are Saying:
+                </h3>
                 {allComments && allComments.map((e)=>{
                     return addNewComment(e.name, e.date, e.comment, e.id);
                 })}

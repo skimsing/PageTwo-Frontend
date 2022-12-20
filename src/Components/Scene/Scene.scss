@@ -3,11 +3,32 @@
 
 .scene{
     overflow: hidden;
+    @include tablet{
+        width: 90%;
+        margin: auto;
+    }
+    @include desktop{
+        width: 80%;
+    }
     &__background{
         height: 50%;
         max-width: 100%;
+        margin: 1rem 0;
         @include tablet{
-            height: 30%;
+            // width: auto;
+            max-height: 80vh;
+        }
+    }
+    &__text{
+        width: 90%;
+        margin: 1rem auto;
+        padding: 1rem;
+        border: 1px solid #000;
+        @include tablet{
+            width: 80%;
+        }
+        @include desktop{
+            width: 60%;
         }
     }
 }
@@ -15,5 +36,20 @@
 .storyOptions{
     &__option{
         padding: 1rem;
+    }
+}
+.storyStartBtn{
+    border:2px solid #36454f;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    color: #36454f;
+    font-weight: 700;
+    font-size: 1rem;
+    &:hover{
+        background-color: #6e7f80;
+        color: #f0f2f2;
+        border: 2px solid #f0f2f2;
+
     }
 }
