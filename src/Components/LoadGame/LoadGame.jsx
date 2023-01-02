@@ -1,4 +1,4 @@
-import './Scene.scss';
+import './LoadGame.scss';
 import Character from '../Character/Character';
 import ScoreModal from '../ScoreModal/ScoreModal';
 import { useState } from 'react';
@@ -56,7 +56,7 @@ export default function Scene(){
         if (sceneObj.choices) {
             return sceneObj.choices.map(element => {
                 return (
-                    <button className='storyOptions__text'
+                    <button className='storyOptions_text'
                         type='text'
                         key={element.id}
                         onClick={() => goToNextScene(element.points)}
@@ -100,7 +100,7 @@ export default function Scene(){
             <div className="scene">
                 <img className='scene__background' 
                     src={`/images/${scene.image}`}/>
-                <Character />    
+                {/* <Character />     */}
             </div>            
             <div className="scene__text">
                 {scene.dialog}

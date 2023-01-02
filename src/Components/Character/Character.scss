@@ -1,0 +1,36 @@
+@use '../../styles/global' as *;
+@use '../../styles/mixins' as *;
+
+$pixel-scale: 3;
+$width: 32px;
+$height: 32px;
+
+
+@keyframes animate {
+    from {
+        transform: translate(0px, 0px);
+    }
+    to {
+        transform: translate(-100%, 0);
+    }
+}
+.character{
+    position: absolute;
+    width: $width * $pixel-scale;
+    height: $height *$pixel-scale;
+    overflow: hidden;
+    transform: translate(-100%, -100%);
+    transition: left 3s linear, top 3s linear;
+}
+.spritesheet{
+    width: $width * 6 * $pixel-scale;
+    position: relative;
+    animation: animate 0.75s steps(6) infinite;
+}
+
+.test{
+    background-image: linear-gradient(90deg, #7a7aaa, #bdf7e0);
+    height: 50px;
+    width: 70px;
+    // border: 5px hotpink solid;
+}

@@ -2,7 +2,7 @@
     {
         "sceneNum": 1,
         "type": "STORY",
-        "dialog":"It's bright and early in the morning as you start your journey, slowly meadering though the woods and gathering only the juiciest berries you find. You reach a fork in the road. Which path will you take?",
+        "dialog":"It's bright and early in the morning as you start your journey, slowly meandering though the woods and gathering only the juiciest berries you find. You reach a fork in the road. Which path will you take?",
         "image": "background1.png",
         "choices": [
             {

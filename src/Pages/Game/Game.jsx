@@ -1,3 +1,4 @@
+import './Game.scss';
 import Scene from "../../Components/Scene/Scene";
 import Leaderboard from "../../Components/Leaderboard/Leaderboard";
 
