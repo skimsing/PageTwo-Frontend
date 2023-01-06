@@ -19,10 +19,10 @@ export default function Character(){
                 />
            </motion.div>
             
-            <motion.div className='test'
+            {/* <motion.div className='test'
                 animate = {{x: 50, y: 50}}
                 transition = {{type: 'tween',}}
-            />
+            /> */}
 
           
         </div>

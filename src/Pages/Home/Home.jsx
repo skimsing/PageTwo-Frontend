@@ -6,11 +6,41 @@ import { motion } from 'framer-motion';
 
 export default function Home(){
     const welcomeText = {
-        start: {x:0, y:-100},
-        end: {
-            x: 0,
-            y: 50,
-            transition:[]
+        start: {opacity: 0},
+        animate: {
+            opacity: 1,
+            transition:{
+                duration: 3,
+                delay: 2
+            }
+        }
+    }
+
+    const colourFadeIn ={
+        start: {fill: "linear-gradient(128deg, rgba(58,175,180,1) 0%)"},
+        animate: {
+           fill: [
+            "linear-gradient(128deg, rgba(65,88,208,1) 28%)", 
+            "(linear-gradient(128deg, rgba(131,58,180,1) 55%)"
+            ],
+            transition: {
+                ease: "easeInOut",
+                duration: 1, 
+                repeat: Infinity,
+                repeatType: "loop",
+            }
+        },
+    }
+
+    const pathTest ={
+        initial:{ pathLength: 0 },
+        animate:{ pathLength: 1 },
+        transition:{
+            duration: 2,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "loop",
+            repeatDelay: 1
         }
     }
     return(
@@ -22,7 +52,10 @@ export default function Home(){
                     alt="Image 1"
                 />
             </div> */}
-            <motion.div variants={welcomeText} initial="start" animate="end">
+            <motion.div className='welcome'
+                variants={welcomeText} 
+                initial="start" 
+                animate="animate">
                 <h1>Welcome</h1>
             </motion.div>
             <motion.svg
@@ -31,22 +64,115 @@ export default function Home(){
               className={`logo`}
               width="500pt" 
               height="500pt"
+            //   variants={welcomeText}
+            //   initial="start" animate="animate"
             >
+                <defs>
+                    <motion.linearGradient id='gradient' x1='0' y1='0' x2='1' y2='1'
+                    // x1='-5.31%' y1='6.79%' x2='105.31%' y2='93.21%'
+                    // variants={colourFadeIn}
+                    // initial="start" animate="animate"
+                    >
+                        {/* <stop offset="0%" stopColor="rgba(58,175,180,1)"/>
+                        <stop offset="28%" stopColor='rgba(65,88,208,1)'/>
+                        <stop offset="55%" stopColor='rgba(131,58,180,1)'/>
+                        <stop offset="78%" stopColor='rgba(200,80,192,1)'/>
+                        <stop offset="100%" stopColor='rgba(255,204,112,1)'/> */}
+                        <motion.stop
+                            stopColor="#2B00FF"
+                            animate={{
+                                stopColor: [
+                                "#0055FF",
+                                "#FFF9DA",
+                                "#E7FFF7",
+                                "#FFC6A8",
+                                "#FF7744",
+                                "#F3F2F2"
+                                ]
+                            }}
+                            transition={{
+                                repeat: Infinity,
+                                repeatType: "reverse",
+                                ease: "linear",
+                                duration: 8
+                            }}
+                            offset="25%"
+                        />
+                        <motion.stop
+                            stopColor="#0055FF"
+                            animate={{
+                                stopColor: [
+                                "#0055FF",
+                                "#FFF9DA",
+                                "#FFC6A8",
+                                "#FF7744",
+                                "#2B00FF"
+                                ]
+                            }}
+                            transition={{
+                                repeat: Infinity,
+                                repeatType: "reverse",
+                                ease: "linear",
+                                duration: 8
+                            }}
+                            offset="50%"
+                        />
+                        <motion.stop
+                            stopColor="#D4504C"
+                            animate={{
+                                stopColor: ["#FFF9DA", "#E7FFF7", "#0055FF"]
+                            }}
+                            transition={{
+                                repeat: Infinity,
+                                repeatType: "reverse",
+                                ease: "linear",
+                                duration: 8
+                            }}
+                            offset="75%"
+                        />
+                        <motion.stop
+                            stopColor="#FF7744"
+                            animate={{
+                                stopColor: ["#D4504C", "#2B00FF", "#E7FFF7", "#FFF9DA"]
+                            }}
+                            transition={{
+                                repeat: Infinity,
+                                repeatType: "reverse",
+                                ease: "linear",
+                                duration: 8
+                            }}
+                            offset="100%"
+                        />
+                        {/* <motion.stop
+                            stopColor="#FFF9DA"
+                            animate={{
+                                stopColor: [
+                                "#ffcc70",
+                                "#c850c0",
+                                "#833ab4",
+                                "#4158d0",
+                                "#3aafb4"
+                                ]
+                            }}
+                            transition={{
+                                repeat: Infinity,
+                                repeatType: "reverse",
+                                ease: "linear",
+                                duration: 8
+                            }}
+                            offset="128%"
+                        /> */}
+                    </motion.linearGradient>
+                </defs>
+
+                {/* background shape */}
                 <motion.path
-                transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{
-                        duration: 2,
-                        ease: "easeInOut",
-                        repeat: Infinity,
-                        repeatType: "loop",
-                        repeatDelay: 1
-                    }}
+                    transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)"
+                    // variants={colourFadeIn}
+                    // initial="start" animate="animate"
                     strokeWidth={4}
                     strokeDasharray="0 1"
-                    fill="#fff"
-                    //background shape
+                    fill= "url(#gradient)"
                     d="M1555 4305 c-209 -26 -480 -94 -745 -188 l-145 -51 -230 -5 c-215 -6
                     -233 -8 -273 -29 -62 -33 -118 -96 -142 -158 -20 -54 -20 -69 -20 -1453 0
                     -1599 -8 -1465 89 -1562 45 -45 70 -61 112 -73 42 -12 313 -26 1179 -61 l1125
@@ -93,7 +219,11 @@ export default function Home(){
                 
             
             </motion.svg>
-            <motion.div variants={welcomeText} initial="start" animate="end">
+            <motion.div classname="welcome"
+                variants={welcomeText} 
+                initial="start" 
+                animate="animate"
+            >
                 <h1>to</h1>
                 <h1>Page Two</h1>
             </motion.div>

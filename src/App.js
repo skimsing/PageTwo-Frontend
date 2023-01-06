@@ -8,7 +8,7 @@ import LoadGame from './Components/LoadGame/LoadGame.jsx'
 import Home from './Pages/Home/Home.jsx';
 import Game from './Pages/Game/Game.jsx';
 import About from './Pages/About/About';
-import LoginHomePage from './Pages/LoginHomePage/LoginHomePage';
+import UserHomePage from './Pages/UserHomePage/UserHomePage';
 
 import {BrowserRouter,Route, Routes} from 'react-router-dom';
 
@@ -22,7 +22,7 @@ function App() {
           <Route path="/" element={<Home />}/>
           <Route path="/About" element={<About />}/>
           <Route path="/Game" element={<Game />}/>
-          <Route path="/LoginHome" element={<LoginHomePage />}/>
+          <Route path="/UserHome" element={<UserHomePage />}/>
         </Routes>
 
         <Footer />

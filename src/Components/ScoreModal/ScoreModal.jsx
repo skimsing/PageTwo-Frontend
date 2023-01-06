@@ -25,7 +25,6 @@ export default function ScoreModal({score, showModal}){
       }
 
     return(
-        //close modal if clicked anywhere outside it
         <div className='overlay'>
             <div className="formCard">
                 <h3>Submit your Score?</h3>

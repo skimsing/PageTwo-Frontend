@@ -2,11 +2,11 @@
 @use '../../styles/mixins.scss' as*;
 @use '../../styles/fonts' as*;
 
-.logo{
-    stroke: #bf4d00;
-    // fill: #36454f;
-    // fill: hotpink;
-}
+// .logo{
+//     stroke: #bf4d00;
+//     fill: #36454f;
+//     fill: hotpink;
+// }
 .hero{
     overflow: hidden;
     &__carouselImg{
@@ -14,6 +14,9 @@
         width: auto;
     }
 
+}
+.welcome{
+    color: #36454f;
 }
 .playGameBtn{
     border:2px solid #36454f;

@@ -1,6 +1,6 @@
-import './LoginHomePage.scss';
+import './UserHomePage.scss';
 
-export default function LoginHomePage(){
+export default function UserHomePage(props){
     return(
         <div>
             <div className='welcomeUser'>

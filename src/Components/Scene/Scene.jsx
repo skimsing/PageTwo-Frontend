@@ -1,9 +1,13 @@
 import './Scene.scss';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+
+//COMPONENTS
 import Character from '../Character/Character';
 import ScoreModal from '../ScoreModal/ScoreModal';
-import { useState } from 'react';
+import Leaderboard from '../Leaderboard/Leaderboard';
 
-//story
+//STORY
 import story from '../../assets/story.json';
 
 export default function Scene(){
@@ -12,13 +16,14 @@ export default function Scene(){
     const [score, setScore] = useState(0);
     const [showStartBtn, setShowStartBtn] = useState(true);
     const [isModalShowing,  setIsModalShowing] = useState(false);
+    const [showLeaderboard, setShowLeaderboard] = useState(true);
 
     //animation states
 
     // keep track of player's score
    function keepScore(points){
-      let currentScore = score + points;
-      setScore(currentScore);
+        let currentScore = score + points;
+        setScore(currentScore);
    } 
 
     //display score modal
@@ -35,11 +40,13 @@ export default function Scene(){
             setTimeout(() => {
                 setIsModalShowing(true);
                 setShowStartBtn(true);
+                setShowLeaderboard(true)
             }, 3000);
         } 
         else {
             // if not go to next scene
             setScene(nextScene)
+            setShowLeaderboard(false)
         }
         //update score
         keepScore(choicePts);
@@ -50,6 +57,7 @@ export default function Scene(){
         setScene(story[0]);
         setScore(0);
         setShowStartBtn(false)
+        setShowLeaderboard(false)
     }
 
    function showOptions(sceneObj){
@@ -110,14 +118,16 @@ export default function Scene(){
             </div>
             <div className="storyControls">
                {showStartBtn && 
+               isModalShowing===false &&
                <button className='storyStartBtn'
-                onClick={startGame}
-                >
+                    onClick={startGame}
+                    >
                     Start Game!
                 </button>
                 }
             </div>
             {isModalShowing && <ScoreModal score={score} showModal={setIsModalShowing}/> }
+            {isModalShowing===false && showLeaderboard && <Leaderboard />}
         </div>
     );
 }

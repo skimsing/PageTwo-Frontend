@@ -29,12 +29,12 @@ export default function Header(){
                             About
                         </Link>
                     </li>
-                    <li className='headerNav__item'>
+                    {/* <li className='headerNav__item'>
                         <Link className="headerNav__itemLink"
                             to={'/LoginHome'}>
                             Login
                         </Link>
-                    </li>
+                    </li> */}
                 </ul>
             </nav>
         </div>
