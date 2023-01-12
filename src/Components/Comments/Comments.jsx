@@ -12,7 +12,7 @@ export default function Comments(){
     // load comments from server
     useEffect(()=>{
         //get data from backend
-        axios.get('http://localhost:8080/comment')
+        axios.get('http://localhost:8080/comments')
         .then((res)=>{
             setAllComments(res.data)
         })
@@ -20,7 +20,7 @@ export default function Comments(){
 
     const getAllComments = async() => {
         //update comments with updated data
-        const res = await axios.get('http://localhost:8080/comment');
+        const res = await axios.get('http://localhost:8080/comments');
         setAllComments(res.data);
         
     }
@@ -32,7 +32,7 @@ export default function Comments(){
                 name: name,
                 comment: comment,
             }
-            await axios.post('http://localhost:8080/comment', userComment);
+            await axios.post('http://localhost:8080/comments', userComment);
             getAllComments();
         } catch (error) {
             console.log("couldn't post comment error", error);
@@ -40,10 +40,10 @@ export default function Comments(){
     }
 
     // delete handler
-    const deleteComment = async(comment) => {
+    const deleteComment = async(commentId) => {
         // console.log("comment is here", comment)
         try {
-            const res = await axios.delete(`http://localhost:8080/comment/${comment}`);
+            const res = await axios.delete(`http://localhost:8080/comments/${commentId}`);
             getAllComments();
         } catch (error) {
             console.log("couldn't delete comment", error);
@@ -133,7 +133,7 @@ export default function Comments(){
                     What Others Are Saying:
                 </h3>
                 {allComments && allComments.map((e)=>{
-                    return addNewComment(e.name, e.date, e.comment, e.id);
+                    return addNewComment(e.name, e.date, e.comment, e.postId);
                 })}
             </div>
         </div>

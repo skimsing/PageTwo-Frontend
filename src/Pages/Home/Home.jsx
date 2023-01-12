@@ -1,21 +1,37 @@
 import './Home.scss';
 import Comments from '../../Components/Comments/Comments.jsx';
-import { Router } from 'react-router-dom';
+import { useNavigate, useParams,  Router } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 export default function Home(){
+    const navigate = useNavigate();
+    const params = useParams();
+    
+    //CLICK HANDLE FUNCTIONS
+    function goToGame(){
+        navigate('/Game');
+    }
+
+    // ANIMATION CONSTATNS
     const welcomeText = {
-        start: {opacity: 0},
+        start: {opacity: 1},
         animate: {
             opacity: 1,
             transition:{
                 duration: 3,
-                delay: 2
+                delay: 2,
+                staggerChildren: 0.1
             }
         }
     }
-
+ const letters = {
+    start: {opacity: 0, y: 10},
+    animate: {
+        opacity: 1,
+        y:0
+    }
+ }
     const colourFadeIn ={
         start: {fill: "linear-gradient(128deg, rgba(58,175,180,1) 0%)"},
         animate: {
@@ -79,15 +95,14 @@ export default function Home(){
                         <stop offset="78%" stopColor='rgba(200,80,192,1)'/>
                         <stop offset="100%" stopColor='rgba(255,204,112,1)'/> */}
                         <motion.stop
-                            stopColor="#2B00FF"
+                            stopColor="#8400ff" //dark blue 2B00FF => purple
                             animate={{
                                 stopColor: [
-                                "#0055FF",
-                                "#FFF9DA",
-                                "#E7FFF7",
-                                "#FFC6A8",
-                                "#FF7744",
-                                "#F3F2F2"
+                                "#02cbff", //blue ribbon
+                                "#FFF9DA",//yellow
+                                "#E7FFF7", //light mint green
+                                "#FFC6A8", //pastel orange
+                                "#d34e85", //dark orange
                                 ]
                             }}
                             transition={{
@@ -96,17 +111,17 @@ export default function Home(){
                                 ease: "linear",
                                 duration: 8
                             }}
-                            offset="25%"
+                            offset="15%"
                         />
                         <motion.stop
-                            stopColor="#0055FF"
+                            stopColor="#02cbff" // 0055FF blue ribbon (replaced with purple)
                             animate={{
                                 stopColor: [
-                                "#0055FF",
-                                "#FFF9DA",
-                                "#FFC6A8",
-                                "#FF7744",
-                                "#2B00FF"
+                                "#02cbff",
+                                "#FFF9DA", //yellow
+                                "#FFC6A8",//pastel orange
+                                "#d34e85", //dark orange
+                                "8400ff" //purple
                                 ]
                             }}
                             transition={{
@@ -115,43 +130,16 @@ export default function Home(){
                                 ease: "linear",
                                 duration: 8
                             }}
-                            offset="50%"
+                            offset="40%"
                         />
                         <motion.stop
-                            stopColor="#D4504C"
-                            animate={{
-                                stopColor: ["#FFF9DA", "#E7FFF7", "#0055FF"]
-                            }}
-                            transition={{
-                                repeat: Infinity,
-                                repeatType: "reverse",
-                                ease: "linear",
-                                duration: 8
-                            }}
-                            offset="75%"
-                        />
-                        <motion.stop
-                            stopColor="#FF7744"
-                            animate={{
-                                stopColor: ["#D4504C", "#2B00FF", "#E7FFF7", "#FFF9DA"]
-                            }}
-                            transition={{
-                                repeat: Infinity,
-                                repeatType: "reverse",
-                                ease: "linear",
-                                duration: 8
-                            }}
-                            offset="100%"
-                        />
-                        {/* <motion.stop
-                            stopColor="#FFF9DA"
+                            stopColor="#D4504C" //valencia - orange red
                             animate={{
                                 stopColor: [
-                                "#ffcc70",
-                                "#c850c0",
-                                "#833ab4",
-                                "#4158d0",
-                                "#3aafb4"
+                                    "#FFF9DA", //pastel yellow
+                                    "#E7FFF7", //light mint green
+                                    "#02cbff", 
+                                    "#8400ff", // purple
                                 ]
                             }}
                             transition={{
@@ -160,8 +148,27 @@ export default function Home(){
                                 ease: "linear",
                                 duration: 8
                             }}
-                            offset="128%"
-                        /> */}
+                            offset="65%"
+                        />
+                        <motion.stop
+                            stopColor="#d34e85" //dark orange (coral)
+                            animate={{
+                                stopColor: [
+                                    "#D4504C", //valencia -orange red
+                                    "#8400ff",  //purple
+                                    "#E7FFF7", //pastel mint green
+                                    "#FFF9DA", //light pastel yellow
+                                    "#FFC6A8",//pastel orange
+                                    ]
+                            }}
+                            transition={{
+                                repeat: Infinity,
+                                repeatType: "reverse",
+                                ease: "linear",
+                                duration: 8
+                            }}
+                            offset="90%"
+                        />
                     </motion.linearGradient>
                 </defs>
 
@@ -230,15 +237,15 @@ export default function Home(){
 
             <div className="aboutGame">
                 <h3>Your Adventure Awaits...</h3>
-                <p>Proin consectetur, neque venenatis commodo sagittis, diam justo tincidunt urna, sit amet tincidunt metus justo sed sem. Cras ut dolor urna. Cras ac nunc sit amet mauris feugiat luctus a eget nisl. Sed rhoncus blandit justo vitae fringilla. Sed dapibus arcu sit amet urna malesuada, quis ullamcorper sem tristique. Praesent vel metus enim. Nunc vel lorem est.</p>
+                <p>Welcome to PageTwo, an online Choose Your Own Adventure game where you get to be the protagonist of your own story.
+                Where will your decisions lead you? Play and find out...</p>
             </div>
-            <Link to={"/Game"}>
                 <button className='playGameBtn'
                     type='button'
+                    onClick={goToGame}
                     >
                     Go to game
                 </button>
-            </Link>
             <div className="commentSection">
               <Comments />
             </div>

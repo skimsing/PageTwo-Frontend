@@ -4,7 +4,8 @@ import { Button} from 'react-bootstrap';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function ScoreModal({score, showModal}){
+export default function ScoreModal({score, showModal, isLoggedIn}){
+    const[userId, setUserId] = useState("");
     const [playerName, setPlayerName] = useState("");
     const navigate = useNavigate();
 
@@ -13,9 +14,10 @@ export default function ScoreModal({score, showModal}){
             playInfo.preventDefault();
             const userScores = {
                 name: playerName,
-                score: score
+                score: score,
+                userId: userId
             }
-            await axios.post('http://localhost:8080/game', userScores);
+            await axios.post('http://localhost:8080/scores', userScores);
             //close modal after posting scores
             showModal(false)
 

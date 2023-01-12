@@ -9,7 +9,7 @@ export default function Game(){
     return(
         <div>
             <Scene />
-            <DictionaryPopper />
+            {/* <DictionaryPopper /> */}
         </div>
     );
 }

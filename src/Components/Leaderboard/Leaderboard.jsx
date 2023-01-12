@@ -8,7 +8,7 @@ export default function Leaderboard(){
 
     useEffect(()=>{
         //get data from backend
-        axios.get('http://localhost:8080/game')
+        axios.get('http://localhost:8080/scores')
         .then((res)=>{
             const sorted = res.data.sort((a, b)=> b.score - a.score); 
             setLeaderData(sorted);

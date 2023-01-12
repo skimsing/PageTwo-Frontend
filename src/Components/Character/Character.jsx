@@ -3,6 +3,12 @@ import character from '../../assets/character.png';
 import {motion} from 'framer-motion';
 
 export default function Character(){
+    //onClick move by X amount
+    //link X to size of background image size
+    const moveSegment = {
+        start: {},
+        animate: {}
+    }
     return(
         // <div className='character'>
         //     <img className= "spritesheet"

@@ -1,9 +1,12 @@
 import './DictionaryPopper.scss';
+import searchIcon from '../../assets/searchIcon.png'
 
 //TOOLS
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+import displayDefinition from '../../Helpers/displayDefinition.jsx'
+
 
 export default function DictionaryPopper(){
     const [showModal, setShowModal]  = useState(false);
@@ -19,37 +22,45 @@ export default function DictionaryPopper(){
                 const dictionary = await axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchTerm}`);
                 const dictObj = dictionary.data;
                 setWord(dictObj);
-                console.log("data", dictObj);
-                console.log("word obj", word);
-                // displayDefinition(word);
             }
         } catch (error) {
             console.error("can't find the word, check for typos", error);
         }
     }
+
     // DISPLAY DEFINITION
-    function displayDefinition(wordObj){
-        console.log("display function", wordObj);
-        if(wordObj){
-            return(wordObj.map(word => {
-                return( word.map(e => {
-                        return(e.meanings.map(f=>{
-                            return(
-                                // console.log("display definition", e.meanings.partOfSpeech, e.definitions.definition)
-                                <div className='definitions'>
-                                    <p>{f.meanings.partOfSpeech}</p>
-                                    <p>{f.meanings.definitions.definition}</p>
-                                </div>
-                            )
-                        }))
-                    })
-                )
-            }))
-        }
-        else{
-            return(<></>)
-        }
-    }
+    // function displayDefinition(wordObj){
+    //     if(wordObj){
+    //         return(wordObj.map(word => {
+    //             return(word.meanings.map(e => {
+    //                 // const test = {
+    //                 //     speech: e.partOfSpeech,
+    //                 //     deftn: [e.definitions.map(f => {
+    //                 //         // return( 
+    //                 //             console.log("definition",f.definition)
+    //                 //         // )
+    //                 //     })]
+    //                 // }
+    //                 return(
+    //                     <div className='meanings'>
+    //                         <p className='meanings__speech'>{e.partOfSpeech}</p>
+    //                         <ul className='meanings__definitions'>
+    //                             {e.definitions.map(f => {
+    //                                 return( 
+    //                                     <li className='meanings_defnItem'>{f.definition}</li>
+    //                                 )
+    //                             })}
+    //                         </ul>
+    //                     </div>
+    //                     // console.log(test)
+                        
+    //                 )
+    //             }))
+    //         }))
+    //     }else{
+    //         return(<></>)
+    //     }
+    // }
             
     //ADD FAVOURITE WORD (IF LOGGED IN)
     function addWordToFavourites(){}
@@ -100,13 +111,17 @@ export default function DictionaryPopper(){
                             onChange={(e) => {setSearchTerm(e.target.value)}}
                         >
                         </input>
-                        <button type='submit'>search!</button>
+                        <button className='dictionary__submitBtn'
+                          type='submit'
+                        >
+                            <img className='dictionary__submitIcon' src={searchIcon} />
+                        </button>
                     </form>
+                    <div className='dictionary__allDefinitions'>
+                        {/* {console.log("display word section", word)} */}
+                        {displayDefinition(word)}
+                    </div>
                 </div>}
-                <div className='dictionary__allDefinitions'>
-                    {/* {console.log("display word section", word)}
-                    {displayDefinition(word)} */}
-                </div>
             </div>
         </div>
     )

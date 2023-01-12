@@ -9,6 +9,7 @@ import Leaderboard from '../Leaderboard/Leaderboard';
 
 //STORY
 import story from '../../assets/story.json';
+import DictionaryPopper from '../DictionaryPopper/DictionaryPopper';
 
 export default function Scene(){
     //story states

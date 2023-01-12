@@ -9,8 +9,10 @@ import Home from './Pages/Home/Home.jsx';
 import Game from './Pages/Game/Game.jsx';
 import About from './Pages/About/About';
 import UserHomePage from './Pages/UserHomePage/UserHomePage';
-
+import CreateAccount from './Pages/CreateAccount/CreateAccount';
+import LoginModal from './Components/LoginModal/LoginModal';
 import {BrowserRouter,Route, Routes} from 'react-router-dom';
+
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/About" element={<About />}/>
           <Route path="/Game" element={<Game />}/>
           <Route path="/UserHome" element={<UserHomePage />}/>
+          <Route path="/CreateAccount" element={<CreateAccount />}/>
+          <Route path="/Login" element={<LoginModal />}/>
         </Routes>
 
         <Footer />
